@@ -1,0 +1,29 @@
+@startuml GeradorCertificado    
+    class Generator {
+        + img : str
+        + file : DataManager
+        + set_line : self.issuance_date
+        + folder_name : List
+        + texts : List
+
+        + issuance_date() : String
+        + folder_generater() : None
+        + text_generator() : None
+        + save_as_img() : None
+        + save_as_pdf() : None
+    }
+
+    class DataManager {
+        + file : String
+
+        - cpf_format() : str
+        + get_data() : list[dict]
+    }
+
+    DataManager --> Generator
+    note as n
+        "Usuário vai informar o 
+        caminho onde estão os aquivos,
+        .csv e .jpg"
+    end note
+@enduml
